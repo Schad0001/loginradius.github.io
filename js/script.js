@@ -9,18 +9,18 @@ $(function() {
 		}
 	});
 
-	$('a[href*=#]:not([href=#])').click(function(e) {
+	// $('a[href*=#]:not([href=#])').click(function(e) {
 
-		var target = $.attr(this, 'href');
-	    $('html, body').animate({
-	        scrollTop: $( $.attr(this, 'href') ).offset().top-180
-	    }, 1000);
+	// 	var target = $.attr(this, 'href');
+	//     $('html, body').animate({
+	//         scrollTop: $( $.attr(this, 'href') ).offset().top-180
+	//     }, 1000);
 
-	    e.preventDefault
+	//     e.preventDefault
 
-	    $('a[href*=#]').removeClass('current-page');
-	    $(this).addClass('current-page');
-	});
+	//     $('a[href*=#]').removeClass('current-page');
+	//     $(this).addClass('current-page');
+	// });
 
 	// var isVisible = function(id) {
 	// 	var scrollVal = $(this).scrollTop();
