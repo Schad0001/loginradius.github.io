@@ -1,0 +1,871 @@
+// Template
+// colors
+lr-color = #2299dd
+lr-color-light = #00b0f0
+lr-orange = #f6830b
+lr-red = #F22613
+font-color = #444444
+link = #00427c
+grey-lighter = #fcfcfc
+grey-light = #eeeeee
+grey-c = #cccccc
+grey-dark = #888888
+bg-color = #fafafa
+
+// for animations
+bezier = cubic-bezier(0.51, 0.01, 0.52, 0.99)
+
+// Base font for the function im creating
+base-font = 16px
+
+font-size(sizeValue = 16, line = sizeValue * 1.875)
+	font-size (sizeValue)px
+	line-height (line)px
+	font-size (sizeValue / 16)rem
+	line-height (line / 16)rem
+	
+user-select()
+	-webkit-touch-callout none
+	-webkit-user-select none
+	-khtml-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none
+	
+box-sizing()
+	-moz-box-sizing border-box
+	-ms-box-sizing border-box
+	-webkit-box-sizing border-box
+	box-sizing border-box
+	
+transition-basic()
+	-webkit-transition all 300ms ease-in-out
+	-ms-transition all 300ms ease-in-out
+	transition all 300ms ease-in-out
+	
+transition-cubic()
+	-webkit-transition all 0.5s cubic-bezier(0.51, 0.01, 0.52, 0.99)
+	-ms-transition all 0.5s cubic-bezier(0.51, 0.01, 0.52, 0.99)
+	transition all 0.5s cubic-bezier(0.51, 0.01, 0.52, 0.99)
+	
+transition()
+	-webkit-transition arguments
+	-ms-transition arguments
+	transition arguments
+	
+translate()
+	-webkit-transform translate(arguments)
+	-moz-transform translate(arguments)
+	transform translate(arguments)
+	
+transform()
+	-webkit-transform arguments
+	-moz-transform arguments
+	transform arguments
+
+
+
+
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:300,400,700);
+
+*
+	margin 0
+	padding 0 
+	border 0
+
+html
+	height 100%
+
+body
+	font-family  Ubuntu ,sans-serif
+	font-size(16, 30)
+	color font-color
+	margin  0
+	-webkit-font-smoothing antialiased
+	// background url(../images/cloud.png) repeat-x bottom center fixed bg-color
+	background-color bg-color
+	min-height 100%
+	overflow-y scroll
+	
+.container 
+	max-width 1180px
+	padding 0 10px
+	margin 0 auto;
+	
+	&.grid 
+		padding 0
+		max-width 1200px
+		
+
+.pos-r 
+	position relative
+	
+.button
+	display inline-block
+	padding 5px 30px
+	background lr-orange
+	color white
+	border-radius 5px
+	font-weight 700
+	text-decoration none
+	cursor pointer
+	transition-basic()
+	
+
+// Button
+.button-shade
+	box-shadow  inset 0 1px 0 0 rgba(255,255,255,0.3),
+	 inset 0 -10px 20px -1px rgba(0,0,0,0.1),
+	 inset 0 -1px 0 rgba(0,0,0,0.1)
+	 
+	 &:hover
+		box-shadow inset 0 1px 0 0 rgba(255,255,255,0.3),
+		 inset 0 -10px 20px 3px rgba(0,0,0,0.1),
+		 inset 0 -1px 0 rgba(0,0,0,0.1),
+		 0 5px 5px -2px rgba(0,0,0,0.3)
+
+a
+	text-decoration none
+
+
+// Reset Defaults
+
+h1,h2,h3,h4,h5,h6 {
+	font-weight 400
+}
+
+h1
+	font-size(48, 60)
+	font-weight 300
+h2
+	font-size(36, 45)
+	font-weight 300
+h3
+	font-size(30, 45)
+h4
+	font-size(24, 30)
+h5
+	font-size(20, 30)
+h6
+	font-size(18, 25)
+
+// Form fields
+input 
+	&[type="text"], &[type="email"], &[type="name"], &[type="password"], &[type="submit"], &[type="url"], &[type="tel"]
+		width 100%
+		padding 5px 10px
+		border-radius 5px
+		border 1px solid grey-light
+		box-sizing()
+		font-size(16,30)
+		font-family inherit
+		margin-bottom 20px
+		background grey-lighter
+		transition-basic()
+		
+		&:focus {
+			outline none;
+			border-color lr-color
+			
+		}
+
+select
+textarea
+button
+	@extend input[type="text"]
+
+select 
+	background url(../images/dropdown.png) no-repeat center right grey-lighter
+	background-size 20px
+	-webkit-appearance none
+	-ms-appearance none
+	-o-appearance none
+	-moz-appearance none
+	appearance none
+	
+	&::-ms-expand
+		display none
+
+input[type='submit']
+button
+	width auto
+	color #fff
+	background-color lr-orange
+	font-weight 700
+	border none
+	margin 0
+	cursor pointer
+	
+	@extend .button-shade
+
+.inline-labels 
+	label
+		position relative
+		padding-left 160px
+		display block
+		box-sizing()
+		
+		@media only screen and (max-width 520px) 
+			padding-left 0
+		
+		.label-text
+			position absolute
+			left 0
+			line-height 42px;
+			&:after
+				content "*"
+			
+			@media only screen and (max-width 520px) 
+				position static
+				line-height normal
+
+		
+img
+	-webkit-user-drag none
+	user-drag none
+	user-select()
+
+// Nav
+.main-nav
+	width 100%
+	text-align left
+	// background #fff
+	margin-bottom 15px
+	position fixed
+	top 0
+	transition-basic()
+	
+	.logo-box
+		position relative
+		float left
+		
+		div.logo
+			margin 0
+			padding 0
+			display inline-block
+			
+			a
+				font-size 36px
+				line-height 75px
+				width 170px
+				display block
+				text-indent 100%
+				white-space nowrap
+				overflow hidden
+				transition all 0.1s ease-in-out
+				-webkit-transition all 0.1s ease-in-out
+				//image fallback for ie8shit
+				background url(../images/logo.png) right no-repeat
+				background url(../images/logo.svg) center / 100% no-repeat
+				text-decoration none
+				
+				
+		.site-description
+			position absolute
+			top 51%
+			right 0
+			font-size 14px
+	ul
+		float: right
+		li
+			list-style-type none
+			display inline-block
+			margin-top 30px
+			a
+				text-decoration none
+				margin 0 0 0 20px
+				color #444
+				
+				&:hover
+					text-decoration underline
+	
+	&.sticky-nav
+		background #fff;
+		box-shadow 0 2px 10px rgba(#000, 0.1)
+		z-index 100
+.cf	
+	&:before, &:after
+		content " "
+		display table
+		
+	&:after
+		clear both
+		
+.main
+	padding-top 120px;
+	
+	.intro-row 
+		width 100%
+		max-width: 840px
+		margin: 0 auto 30px
+
+.row
+	+ .row
+		padding-top 30px
+		border-top 1px solid #eee;
+
+[class*="dev-"]
+	text-align center
+	padding 60px 0;
+	
+	.icon
+		text-indent 100%
+		white-space nowrap
+		overflow hidden
+		color transparent
+		background url(../images/dev-sprites-v2.png) no-repeat
+		
+	.button
+		font-size(20,30)
+			
+
+.column
+	width 233px
+	height 170px
+	// float left
+	display inline-block;
+	background #29d
+	position relative
+	overflow hidden
+	box-sizing border-box
+	
+	&.title
+		background none;
+	.icon-frame
+		width 235px
+		height 170px
+		background-color #fff
+		position absolute
+		top 0
+		z-index 2
+		text-align center
+		transition .2s ease-in-out
+		cursor pointer
+		
+		.odd &
+			background-color #fafafa;
+			
+		.pkg
+			position: relative
+			top -15%
+			
+			span
+				display inline-block
+				padding: 3px 15px
+				background #ccc;
+				border-radius: 15px
+				color #fff
+				font-size(12, 20);
+			
+		&.mobile
+			&:before
+			&:after
+				content ""
+				position absolute;
+				display block
+				top 0
+				right 0
+				color #fff;
+				
+			&:before
+				width 32px
+				height 32px
+				background none
+				border 32px solid #ccc
+				border-left-color transparent;
+				border-bottom-color transparent;
+				box-sizing()
+				
+			&:after
+				content "Mobile"
+				width 50px
+				height 57px
+				position absolute;
+				top 0
+				right 0;
+				font-size(12,20)
+				background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACUAAAAjCAMAAAAkGTMsAAAApVBMVEUAAAD////////////////////////////////////////////////////////////k5OT////////////////////////o6Oj////////////////////////////////////////////Jycn////////////S0tL////////////////9/f3////////////////////7+/v///////////////82YiKEAAAANnRSTlMAAAECAwQGCQoMDhUWHSIjM0NJSk1SV1thY25xc3uAgY+UmKOkpa2zu9ju8fP19vf4+fr6/P6h4PLpAAAAqUlEQVR42o3KRw6CAAAF0VHsYu+9YVcQBe9/NJWEiBHlz26SR35ysM9/so+7ThZjeU/It4eQnieyPcAsibkAjPxgtr1WO6wxjagbQQPvNat6pRpm9r8VXfc519PxnR2jaB4c5+JGujhh3luRK5vx1TYRRepHRStQCay0/lBoCk2hKTSFptAUmkJToCk0habQFJpCU2gKTaEpNIWm0BSpgqJgLKmMpSiMxQPyHUI/m4VP4wAAAABJRU5ErkJggg==') bottom center no-repeat
+
+	.icon
+		display inline-block
+		width 146px
+		height 147px
+		
+	&:hover
+		border-top 1px solid #eee
+		
+		.icon-frame
+			top -50px
+			
+	.download-box
+		width 100%
+		display inline-block
+		padding-top 130px
+	
+		a
+			&.download-button
+			&.doc-button
+			&.c-button
+				font-size(14, 20);
+				text-decoration none
+				padding 5px 10px
+				border-radius 5px
+				color #29d;
+				background #fff
+				border none
+				margin 0 5px
+				transition-basic()
+				opacity 0.9
+				
+				&:hover
+					opacity 1
+					
+				&:before
+					content "";
+					width 14px;
+					height 14px;
+					display inline-block;
+					vertical-align middle
+					margin-top -2px
+					
+			&.doc-button 
+				&:before
+					background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAS0lEQVQYV2NkYGBgUJp59z+IxgbupSszgsQZQYpgHGSFMHEYTVAhzEa4QmTrQTagOweniejOwGoiSBHMVBhNuYkwq0k3kVCAw9wLAOaNViwUtk1mAAAAAElFTkSuQmCC') no-repeat center center;
+					
+			&.download-button 
+				&:before
+					background url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQklEQVQYV2NkYGBgUJp59z+IxgXupSszMoIUgRj4FILUYCiEmY6smcYKYW5FthpZDMWN6L6HuZMyN2ILJrCJxAY4ADgbXMOAxAyYAAAAAElFTkSuQmCC') no-repeat center center;
+					
+			&.c-button
+				&:before
+					content none
+
+		
+.odd
+	background none
+	
+.even
+	background #fff
+			
+.dev-mobile-sdk a.download-button
+	background 0
+	border 1px solid #29d
+	padding 0 10px
+	border-radius 5px
+		
+.dev-mobile-sdk
+	.column
+		width 280px
+		text-align center
+		float left
+		padding 15px 0
+		
+		h4
+			font-weight 300
+			text-align center
+			span.icon
+				display inline-block
+				width 30px
+				height 30px
+				margin-right 5px
+				margin-bottom -3px
+				
+	a.download-button
+		margin-top 10px
+		
+.dev-third-party .column
+	margin 0
+	width 195px
+	float left
+	
+	.icon
+		width 150px
+		height 150px
+		margin 0 auto
+		
+.dev-help
+	background #29d
+	padding 90px 0
+	
+	> .panel-grid-cell
+		border-right 1px solid #fff
+		
+		&:last-child
+			border-right none
+			
+		@media only screen and (max-width 780px)
+			border-right none
+			
+	.icon
+		display inline-block
+		width 120px
+		height 120px
+		background url(images/developers/dev-help-sprite.png)
+		
+	h2
+		color #fff
+		font-size 36px
+		line-height 30px
+		
+	p
+		color #fff
+		line-height 25px
+		margin 30px 0
+		-webkit-font-smoothing antialiased
+		font-weight 400
+		
+	a
+		&.button
+			font-size 16px
+			line-height 30px
+			text-align center
+			display inline-block
+			background #fff
+			color #29d
+			font-weight 700
+			width 100%
+			max-width 200px
+			
+			&.free-trial
+				background #FFB23C
+				color #8B4F15
+				font-weight 700
+				border 2px solid #F89406
+				-moz-box-sizing border-box
+				-ms-box-sizing border-box
+				-webkit-box-sizing border-box
+				box-sizing border-box
+				
+		&.phone
+			color #fff
+			background none
+			border 1px solid #fff
+			
+/*icons*/
+.dev-help .icon
+	&.support-icon
+		background-position 0 0
+	&.api-icon
+		background-position -120px 0
+	&.contact-icon
+		background-position -240px 0
+		
+.user-help .icon
+	&.question-icon
+		background-position 0 -133px
+	&.demo-icon
+		background-position -120px -133px
+	&.start-icon
+		background-position -240px -133px
+		
+.icon
+	&.wordpress
+		background-position -3px 0px
+	&.drupal
+		background-position -150px 0
+	&.joomla
+		background-position -300px 0
+	&.dotnet, &.dotnetnuke
+		background-position -450px 0
+	&.presta, &.prestashop
+		background-position -600px 0
+	&.oscommerce, &.oscomm
+		background-position -750px 0
+	&.simplemachines
+		background-position -900px 0
+	&.vanilla
+		background-position -1050px 0
+	&.magento
+		background-position 0 -150px
+	&.zencart
+		background-position -150px -150px
+	&.xcart
+		background-position -300px -150px
+	&.vbulletin
+		background-position -450px -150px
+	&.phpbb
+		background-position -600px -150px
+	&.buddypress
+		background-position -750px -150px
+	&.bbpress
+		background-position -900px -150px
+	&.jomsocial
+		background-position -1050px -150px
+	&.ee, &.expressionengine
+		background-position -1053px -150px
+	&.azure
+		background-position -1199px 0
+	&.sitefinity
+		background-position -1199px -150px
+	&.zimbra
+		background-position -1350px 0
+	&.jive
+		background-position -1350px -150px
+	&.bigcommerce
+		background-position -1500px 0
+	&.shopify
+		background-position -1500px -150px
+	&.volusion
+		background-position -1350px -300px
+		
+	&.ios
+		background-position -1050px -450px
+	&.android
+		background-position -1200px -300px
+	&.windowsphone, &.windows.phone
+		background-position -1200px -450px
+	&.phonegap
+		background-position -1350px -450px
+	&.parse
+		background-position -1500px -300px	
+.icon
+	&.exacttarget
+		background-position -1182px -605px
+	&.mixpanel
+		background-position -1194px -799px
+	&.kissmetrics
+		background-position -1370px -600px
+	&.mandrill
+		background-position -1568px -595px
+	&.bluehornet
+		background-position -1379px -800px
+	&.hootsuite
+		background-position -1512px -450px
+	&.sugarcrm
+		background-position -1540px -770px
+		width 195px !important
+	&.livefyre
+		background-position 2px -955px
+		width 195px !important
+	&.viafoura
+		background-position -397px -920px
+	&.zendesk
+		background-position -200px -920px
+	&.desk
+		background-position -600px -925px
+		width 195px !important
+	&.doubleclick
+		background-position -805px -950px
+	&.adroll
+		background-position -1002px -941px
+	&.fb-ad, &.facebook.network
+		background-position -1191px -954px
+	&.google-ad-icon, &.google
+		background-position -1375px -935px
+	&.mailchimp
+		background-position -21px -613px
+	&.sendgrid
+		background-position -225px -613px
+	&.disqus
+		background-position -396px -612px
+		width 195px !important
+	&.salesforce
+		background-position -612px -615px
+	&.infusion-soft, &.infusionsoft
+		background-position -780px -609px
+		width 195px !important
+	&.pardot
+		background-position -1006px -604px
+	&.hubspot
+		background-position -24px -807px
+	&.unbounce
+		background-position -192px -796px
+		width 195px !important
+	&.survey-gizmo
+		background-position -394px -786px
+	&.google-analytics, &.google.analytics
+		background-position -614px -800px
+	&.marketo
+		background-position -804px -800px
+	&.zoho
+		background-position -1000px -799px
+	&.php
+		background-position -42px -290px
+	&.ms-net, &.microsoft
+		background-position -280px -300px
+	&.java
+		background-position -520px -295px
+	&.html-js, &.js
+		background-position -765px -295px
+	&.ruby
+		background-position -45px -450px
+	&.asp
+		background-position -283px -447px
+	&.python
+		background-position -525px -450px
+	&.node
+		background-position -765px -450px
+	&.vertical-response, &.verticalresponse
+		background-position 2px -1083px
+	&.silverpop
+		background-position -146px -1084px
+	&.coldfusion
+		background-position -297px -1084px
+		
+	&.coming-soon
+		background none;
+		&:before 
+			content "Coming Soon"
+			display block
+			margin 0 auto;
+			width 140px
+			height 140px
+			border-radius 50%
+			background #ccc;
+			color #fff
+			line-height 140px
+			text-align center
+			text-indent initial
+			
+
+	&.business-email-validator
+		background-position -457px -1084px
+	&.open-social-sharing
+		background-position -600px -1084px
+		
+
+
+.sub-nav
+	background none
+	border: 1px solid #eee;
+	border-right none
+	border-left none
+	ul
+		float: none
+		display block
+		clear both
+		text-align center
+		li
+			margin 5px 1px
+			a
+				display inline-block
+				border 1px solid transparent
+				padding 0 10px
+				color #222
+				border-radius 5px
+				box-sizing border-box
+				font-size 14px
+				line-height 30px
+			
+				&.current-page
+				&:hover
+					border-color #29d
+					color #29d
+					text-decoration none
+
+
+
+
+.footer
+	display block
+	background #f2f2f2
+	color #262626
+	text-align center
+	.other
+		h3
+			color #262626
+			margin 0 0 25px 0
+		p
+			a
+				text-decoration underline
+				color #262626
+				&:hover
+					color #2299dd
+		a
+			&.button
+				&:hover
+					background-color #2DC7FF
+	.info
+		min-width 480px
+		background #414141
+		text-align left
+		padding-top 25px
+		color #fff
+		padding-bottom 60px
+		p
+			color #929292
+			font-size 12px
+			line-height 65px
+			display inline-block
+		ul
+			display inline-block
+			font-size 14px
+			&.footer-nav
+				display inline-block
+				text-align left
+				width 50%
+				float left
+				padding 0
+				margin 0
+				li
+					margin-right 3%
+					display inline-block
+					a
+						color #fff
+						font-weight 300
+						font-size(16, 30)
+						&:hover
+							font-style underline
+			&.social-icons
+				margin-top 5px
+				display inline-block
+				float right
+				padding 0
+				margin 0
+				li
+					display inline-block
+					a
+						display block
+						width 64px
+						height 64px
+						margin 0 0 0 10px
+						background url(//p4.zdassets.com/hc/theme_assets/296183/200036363/footer-social-spritesw-g.png)
+						color rgba(0,0,0,0)
+						float right
+						transition background-position .25s ease-in-out
+						border-radius 0 10px
+						&.facebook
+							background-position 0 0
+							&:hover
+								background-position 0 -70px
+						&.twitter
+							background-position -70px 0
+							&:hover
+								background-position -70px -70px
+						&.gplus
+							background-position -140px 0
+							&:hover
+								background-position -140px -70px
+						&.linkedin
+							background-position -210px 0
+							&:hover
+								background-position -210px -70px
+						&.youtube
+							background-position -280px 0
+							&:hover
+								background-position -280px -70px
+						&.github
+							background-position -350px 0
+							&:hover
+								background-position -350px -70px
+		.copyright
+			margin-top 10px
+			color #FFFFFF
+			display inline-block
+			font-weight 300
+			a
+				color #FFFFFF
+
+.footer .other a.button, .submit-a-request
+	color #fff
+	width 260px
+	font-size 20px
+	text-decoration none
+	line-height 45px
+	margin 10px 10px 25px 10px
+	display inline-block
+	padding 0
+	border-radius 0 10px
+	background-color #2299dd
+
+
