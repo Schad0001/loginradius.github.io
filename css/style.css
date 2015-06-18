@@ -42,7 +42,9 @@ body {
   text-decoration: none;
   cursor: pointer;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 .button-shade,
@@ -118,7 +120,9 @@ button {
   padding: 5px 10px;
   border-radius: 5px;
   border: 1px solid #eee;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 16px;
   line-height: 30px;
@@ -128,7 +132,9 @@ button {
   margin-bottom: 20px;
   background: #fcfcfc;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 input[type="text"]:focus,
@@ -170,7 +176,9 @@ button {
   position: relative;
   padding-left: 160px;
   display: block;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 @media only screen and (max-width: 520px) {
@@ -209,7 +217,9 @@ img {
   position: fixed;
   top: 0;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
 }
 .main-nav .logo-box {
@@ -233,6 +243,7 @@ img {
   white-space: nowrap;
   overflow: hidden;
   -webkit-transition: all 0.1s ease-in-out;
+  -ms-transition: all 0.1s ease-in-out;
   transition: all 0.1s ease-in-out;
   -webkit-transition: all 0.1s ease-in-out;
   background: url("../images/logo.png") right no-repeat;
@@ -281,6 +292,7 @@ img {
   padding-top: 120px;
 }
 .main .intro-row {
+  text-align: center;
   width: 100%;
   max-width: 840px;
   margin: 0 auto 30px;
@@ -306,6 +318,10 @@ img {
   font-size: 1.25rem;
   line-height: 1.875rem;
 }
+.dev-api-social-login,
+.dev-install-packages {
+  text-align: left;
+}
 .column {
   width: 233px;
   height: 170px;
@@ -313,7 +329,9 @@ img {
   background: #29d;
   position: relative;
   overflow: hidden;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .column.title {
@@ -328,6 +346,7 @@ img {
   z-index: 2;
   text-align: center;
   -webkit-transition: 0.2s ease-in-out;
+  -ms-transition: 0.2s ease-in-out;
   transition: 0.2s ease-in-out;
   cursor: pointer;
 }
@@ -365,7 +384,9 @@ img {
   border: 32px solid #ccc;
   border-left-color: transparent;
   border-bottom-color: transparent;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .column .icon-frame.mobile:after {
@@ -396,6 +417,7 @@ img {
   width: 100%;
   display: inline-block;
   padding-top: 130px;
+  text-align: center;
 }
 .column .download-box a.download-button,
 .column .download-box a.doc-button,
@@ -412,7 +434,9 @@ img {
   border: none;
   margin: 0 5px;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   -webkit-transition: all 300ms ease-in-out;
+  -ms-transition: all 300ms ease-in-out;
   transition: all 300ms ease-in-out;
   opacity: 0.9;
 }
@@ -537,8 +561,12 @@ img {
   color: #8b4f15;
   font-weight: 700;
   border: 2px solid #f89406;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
 .dev-help a.phone {
@@ -827,7 +855,9 @@ img {
   padding: 0 10px;
   color: #222;
   border-radius: 5px;
+  -moz-box-sizing: border-box;
   -ms-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 14px;
   line-height: 26.25px;
@@ -927,6 +957,7 @@ img {
   color: rgba(0,0,0,0);
   float: right;
   -webkit-transition: background-position 0.25s ease-in-out;
+  -ms-transition: background-position 0.25s ease-in-out;
   transition: background-position 0.25s ease-in-out;
   border-radius: 0 10px;
 }
